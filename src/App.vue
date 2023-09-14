@@ -1,15 +1,13 @@
 <template>
   <div>
-    <Fgroup/>
+    <HomePage/>
   </div>
 </template>
 <script>
-import Fgroup from './components/forms/Fgroup.vue';
+import HomePage from './pages/HomePage.vue';
 
 export default {
-    components: { Fgroup }
+  components: { HomePage }
 }
 </script>
-<style>
-  
-</style>
+<style></style>
