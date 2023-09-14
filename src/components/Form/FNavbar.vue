@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center cursor-pointer mt-[40px]">
+  <div class="2xl:flex xl:flex lg:flex md:flex block items-center cursor-pointer mt-[40px]">
     <div :class="personNav === false ? ' bg-blue text-white !border-[3px] !border-blue': ''" @click="$emit('physicalPersonClick')" class="!rounded-l-md">
       <p :class="personNav === true ? '!text-blue !border-[3px] !border-blue-light' : ''"
         class="uppercase !rounded-l-md text-[12px] tracking-[1.125px] font-rubik py-[10px] px-[89px]"

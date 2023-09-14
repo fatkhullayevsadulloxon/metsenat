@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 grid-cols-2 gap-4">
         <div class="mt-[12px]" v-for="(payment, index) in payments" :key="index">
             <h3 @click="() => {
                 paymentId = payment.id,

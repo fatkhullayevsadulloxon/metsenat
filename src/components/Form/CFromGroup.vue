@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="!w-[587px]">
+        <div class="2xl:!w-[587px] xl:!w-[587px] lg:!w-[587px] md:!w-[587px] sm:!w-[400px]">
             <CLabel class="mt-7" label="F.I.Sh. (Familiya Ism Sharifingiz)">
                 <CInput :class="inputError.firstNameInput === true ? 'border-red-500' : ''" v-model="firstName"
                     placeholder="Abdullayev Abdulla Abdulla o’g’li" class="mt-2">
