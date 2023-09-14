@@ -18,7 +18,10 @@
                 </CInput>
             </CLabel>
             <CLabel label="To‘lov summasi" class="mt-7" />
-            <CPayment :payments="payments"></CPayment>
+            <CPayment @otherClick="otherClick" @otherClickFalse="otherClickFalse" :payments="payments"></CPayment>
+            <CInput :class="inputError.otherSumInput === true ? 'border-red-500' : ''" v-model="otherSumValue" class="mt-4" placeholder="0" v-if="otherSum">
+
+            </CInput>
             <slot></slot>
             <CButton @onSubmit="onSubmit" class="mt-7" />
         </div>
@@ -40,23 +43,39 @@ const payments = [
 ]
 const firstName = ref('')
 const phone = ref('')
+const otherSumValue = ref('')
+const otherSumModel = ref('')
+const otherSum = ref(false)
 const inputError = ref({
     firstNameInput: false,
     phoneInput: false,
+    otherSumInput: false
 })
+
+const otherClick = () => {
+    otherSum.value = true
+}
+const otherClickFalse = () => {
+    otherSum.value = false
+}
 
 const onSubmit = () => {
     if (firstName.value === '') {
         inputError.value.firstNameInput = true
+    } else {
+        inputError.value.firstNameInput = false
     }
-    if (phone.value === '') {
+    if (phone.value < 9) {
         inputError.value.phoneInput = true
+    } else {
+        inputError.value.phoneInput = false
+    }
+    if (otherSumValue.value === '') {
+        inputError.value.otherSumInput = true
+    } else {
+        inputError.value.otherSumInput = false
     }
 }
 
 </script>
-<style>
-input:nth-child(2) {
-    /* display: none */
-}
-</style>
+<style></style>

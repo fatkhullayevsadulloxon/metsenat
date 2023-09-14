@@ -2,15 +2,21 @@
     <div class="grid grid-cols-3 gap-4">
         <div class="mt-[12px]" v-for="(payment, index) in payments" :key="index">
             <h3 @click="() => {
-                paymentId = payment.id
+                paymentId = payment.id,
+                otherBorder = false
+                $emit('otherClickFalse')
             }
-                " :class="paymentId === payment.id ? '!border-2 !border-blue' : ''"
+                " :class="paymentId === payment.id ? '!border-blue' : ''"
                 class="py-[20px] cursor-pointer px-[35px] border-2 border-blue-light font-rubik font-medium text-[18px]">
                 {{ payment.sum }} <span class="font-normal text-blue absolute ms-1">uzs</span>
             </h3>
         </div>
         <div class="mt-[12px]">
-            <h3 @click="$emit('otherClick')"
+            <h3 @click="() => {
+                otherBorder = true
+                paymentId = 0
+                $emit('otherClick')
+            }" :class="otherBorder === true ? '!border-blue' : ''"
                 class="text-center py-[20px] cursor-pointer px-[35px] border-2 border-blue-light font-rubik font-medium text-[18px]">
                 Boshqa
             </h3>
@@ -27,7 +33,8 @@ export default {
     },
     data() {
         return {
-            paymentId: 0,
+            paymentId: 1,
+            otherBorder: false
         }
     }
 }
