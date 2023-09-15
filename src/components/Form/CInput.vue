@@ -2,14 +2,18 @@
     <div
         class="flex items-center w-full py-3 px-4 !rounded-md focus-within:border-blue bg-gray-light-200 border-2 tran border-blue-light transition">
         <slot name='prefix' />
-        <input :placeholder="placeholder" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"
-            class="w-full text-base font-normal placeholder:text-gray-light/30 outline-none rounded-lg font-rubik bg-transparent">
+        <input @showPassword="showPassword" :placeholder="placeholder" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"
+            class="w-full text-base font-normal placeholder:text-gray-light/30 outline-none rounded-lg font-rubik !bg-transparent" :type="type">
         <slot name="suffix" />
     </div>
 </template>
 <script setup >
-defineProps(['modelValue', 'placeholder'])
+defineProps(['modelValue', 'placeholder', 'type'])
 defineEmits(['update:modelValue'])
+
+const showPassword = () => {
+    console.log("salom");
+}
 </script>
     
 <style>

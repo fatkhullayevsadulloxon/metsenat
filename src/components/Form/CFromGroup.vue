@@ -1,29 +1,32 @@
 <template>
     <div class="container">
         <div class="2xl:!w-[587px] xl:!w-[587px] lg:!w-[587px] md:!w-[587px] sm:!w-[400px]">
-            <CLabel class="mt-7" label="F.I.Sh. (Familiya Ism Sharifingiz)">
-                <CInput :class="inputError.firstNameInput === true ? 'border-red-500' : ''" v-model="firstName"
-                    placeholder="Abdullayev Abdulla Abdulla o’g’li" class="mt-2">
-                    <template #prefix>
-                        <span class="absolute font-rubik text-[15px] "></span>
-                    </template>
-                </CInput>
-            </CLabel>
-            <CLabel class="mt-7" label="Telefon raqamingiz" prefixtitle="+998" placeholder="00 000-00-00">
-                <CInput :class="inputError.phoneInput === true ? 'border-red-500' : ''" v-model="phone"
-                    v-mask="['## ###-##-##']" placeholder="00 000-00-00" class="mt-2">
-                    <template #prefix>
-                        <span class="font-rubik font-normal text-base me-1">+998</span>
-                    </template>
-                </CInput>
-            </CLabel>
-            <CLabel label="To‘lov summasi" class="mt-7" />
-            <CPayment @otherClick="otherClick" @otherClickFalse="otherClickFalse" :payments="payments"></CPayment>
-            <CInput :class="inputError.otherSumInput === true ? 'border-red-500' : ''" v-model="otherSumValue" class="mt-4" placeholder="0" v-if="otherSum">
+            <form @submit.prevent>
+                <CLabel class="mt-7" label="F.I.Sh. (Familiya Ism Sharifingiz)">
+                    <CInput :class="inputError.firstNameInput === true ? 'border-red-500' : ''" v-model="firstName"
+                        placeholder="Abdullayev Abdulla Abdulla o’g’li" class="mt-2">
+                        <template #prefix>
+                            <span class="absolute font-rubik text-[15px] "></span>
+                        </template>
+                    </CInput>
+                </CLabel>
+                <CLabel class="mt-7" label="Telefon raqamingiz" prefixtitle="+998" placeholder="00 000-00-00">
+                    <CInput :class="inputError.phoneInput === true ? 'border-red-500' : ''" v-model="phone"
+                        v-mask="['## ###-##-##']" placeholder="00 000-00-00" class="mt-2">
+                        <template #prefix>
+                            <span class="font-rubik font-normal text-base me-1">+998</span>
+                        </template>
+                    </CInput>
+                </CLabel>
+                <CLabel label="To‘lov summasi" class="mt-7" />
+                <CPayment @otherClick="otherClick" @otherClickFalse="otherClickFalse" :payments="payments"></CPayment>
+                <CInput :class="inputError.otherSumInput === true ? 'border-red-500' : ''" v-model="otherSumValue"
+                    class="mt-4" placeholder="0" v-if="otherSum">
 
-            </CInput>
-            <slot></slot>
-            <CButton @onSubmit="onSubmit" class="mt-7" />
+                </CInput>
+                <slot></slot>
+                <CButton @onSubmit="onSubmit" class="mt-7" />
+            </form>
         </div>
     </div>
 </template>
@@ -44,7 +47,6 @@ const payments = [
 const firstName = ref('')
 const phone = ref('')
 const otherSumValue = ref('')
-const otherSumModel = ref('')
 const otherSum = ref(false)
 const inputError = ref({
     firstNameInput: false,
