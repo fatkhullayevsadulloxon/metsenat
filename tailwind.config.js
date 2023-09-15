@@ -16,6 +16,9 @@ module.exports = {
         'poppins': ['Poppins'],
         'rubik': ['Rubik']
       },
+      margin: {
+        '5.5': '22px',
+      }
     },
   },
   plugins: [],

@@ -20,6 +20,7 @@ import CInput from '../components/Form/CInput.vue';
 import CFromGroup from '../components/Form/CFromGroup.vue';
 import FNavbar from '../components/Form/FNavbar.vue';
 import LegalPerson from '../components/legalPerson/LegalPerson.vue';
+import { RouterLink } from 'vue-router';
 
 
 
@@ -37,7 +38,7 @@ export default {
             this.personNav = false;
         }
     },
-    components: { CInput, CFromGroup, FNavbar, LegalPerson }
+    components: { CInput, CFromGroup, FNavbar, LegalPerson, RouterLink }
 }
 </script>
 <style>
@@ -53,11 +54,11 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
 }
 
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0;
+    opacity: 0;
 }
 </style>
