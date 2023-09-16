@@ -7,11 +7,11 @@ import router from './router'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import Vue3Autocounter from 'vue3-autocounter';
 
 library.add(faUserSecret)
 
-const app = createApp(App)
-    .component('font-awesome-icon', FontAwesomeIcon)
+const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon).component('vue3-autocounter', Vue3Autocounter)
 app.use(VueTheMask)
 app.use(router)
 

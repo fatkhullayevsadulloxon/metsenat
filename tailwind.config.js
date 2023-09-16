@@ -9,15 +9,29 @@ module.exports = {
         'blue': '#36F',
         'blue-light': '#E0E7FF',
         'blue-light-200': '#2E5BFF',
+        'blue-light-700': '#28293D',
         "gray-light": '#2E384D',
-        'gray-light-200': "rgba(224, 231, 255, 0.20)"
+        'gray-light-200': "rgba(224, 231, 255, 0.20)",
+        'gray-light-500': "#F1F1F3",
+        'gray-light-300': "#E8E8E8",
+        'gray-light-400': "#EDF1FD",
+        'gray-light-600': "#7A7A9D",
+        'gray-light-700': "#B2B7C1",
+        'success': '#00AE69'
       },
       fontFamily: {
         'poppins': ['Poppins'],
-        'rubik': ['Rubik']
+        'rubik': ['Rubik'],
+        'pro-bold': ['Pro-bold']
       },
       margin: {
         '5.5': '22px',
+      },
+      padding: {
+        '13': '55px',
+      },
+      letterSpacing: {
+        '1.25': '1.125px',
       }
     },
   },

@@ -5,11 +5,11 @@
   </label>
 </template>
 <script>
-import CInput from './CInput.vue';
+import CInput from './CInput.vue'
 
 export default {
   props: {
-    label: String,
+    label: String
   },
   components: { CInput }
 }
