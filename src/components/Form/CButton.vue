@@ -1,9 +1,12 @@
 <template>
   <div>
-    <div :class="buttonColor" class="flex items-center justify-center transition rounded-md !py-[14px] !px-8">
+    <div
+      :class="buttonColor"
+      class="flex items-center cursor-pointer justify-center transition rounded-md !py-[14px] !px-8"
+    >
       <slot name="prefix"></slot>
       <button @click="$emit('onSubmit')" class="font-rubik font-medium ms-2.5">
-        {{title}}
+        {{ title }}
       </button>
     </div>
     <slot name="suffix"></slot>
@@ -14,7 +17,7 @@ import { computed } from 'vue'
 
 const props = defineProps<{
   variant?: 'primary' | 'outline' | 'secondary'
-  "title": String
+  title: String
 }>()
 
 const buttonColor = computed(() => {

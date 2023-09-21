@@ -8,7 +8,8 @@
             <h3 class="font-poppins text-2xl">Kirish</h3>
             <form @submit.prevent="onSubmit" class="mt-11">
               <CLabel label="Login">
-                <CInput :secondary="secondary"
+                <CInput
+                  :secondary="secondary"
                   :class="inputError.loginInput === true ? 'border-red-500' : ''"
                   v-model="formData.login"
                   placeholder="adm8904"
@@ -71,7 +72,7 @@ const fetchLogin = async () => {
       console.log(res)
       window.localStorage.setItem('refresh', res.data.refresh)
       window.localStorage.setItem('access', res.data.access)
-      this.$router.push({path: '/partners'})
+      this.$router.push({ path: '/partners' })
     })
     .catch((res) => {})
 }
@@ -96,7 +97,7 @@ const showPassword = () => {
 }
 
 const onSubmit = () => {
-    fetchLogin()
+  fetchLogin()
   if (formData.login.value === '') {
     inputError.value.loginInput = true
   } else {

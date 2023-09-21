@@ -17,7 +17,9 @@ module.exports = {
         'gray-light-400': "#EDF1FD",
         'gray-light-600': "#7A7A9D",
         'gray-light-700': "#B2B7C1",
-        'success': '#00AE69'
+        'gray-light-800': "#B1B1B8",
+        'success': '#00AE69',
+        'orange': '#FFA445'
       },
       fontFamily: {
         'poppins': ['Poppins'],
@@ -32,6 +34,12 @@ module.exports = {
       },
       letterSpacing: {
         '1.25': '1.125px',
+      },
+      fontSize:{
+        sm: '15px'
+      },
+      maxWidth:{
+        '222': "222px"
       }
     },
   },

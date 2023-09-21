@@ -3,20 +3,22 @@ import HomePage from '../pages/HomePage.vue'
 import Login from '../components/Login/Login.vue'
 import LoginLayout from '../layouts/LoginLayout.vue'
 import MainLayout from '../layouts/MainLayout.vue'
-import Dashboard from '../components/Dashboard/Dashboard.vue'
+import Dashboard from "../pages/DashboardPage.vue"
+import Partners from "../pages/PartnersPage.vue"
+import NotFound from '../components/NotFound/NotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/auth",
-      name: "login-layout",
+      path: '/auth',
+      name: 'login-layout',
       component: LoginLayout,
       children: [
         {
-          path: "/login",
+          path: '/login',
           component: Login,
-          name: "login",
+          name: 'login',
           meta: {
             auth: true
           }
@@ -24,23 +26,32 @@ const router = createRouter({
       ]
     },
     {
-      path: "/",
-      name: "main-layout",
+      path: '/',
+      name: 'main-layout',
       component: MainLayout,
       children: [
         {
-          path: '/',
+          path: '/dashboard',
           name: 'Dashboard',
           component: Dashboard,
           meta: {
             auth: true
           }
         },
+        {
+          path: '/partners',
+          name: 'partners',
+          component: Partners,
+          meta: {
+            auth: true
+          }
+        }
       ]
     },
-    // {
-    //   path: '/:catchAll(.*)', component: NotFound
-    // },
+    {
+      path: '/:catchAll(.*)',
+      component: NotFound
+    }
   ]
 })
 
