@@ -5,6 +5,7 @@ import LoginLayout from '../layouts/LoginLayout.vue'
 import MainLayout from '../layouts/MainLayout.vue'
 import Dashboard from "../pages/DashboardPage.vue"
 import Partners from "../pages/PartnersPage.vue"
+import SinglePartners from "../pages/SinglePartners.vue"
 import NotFound from '../components/NotFound/NotFound.vue'
 
 const router = createRouter({
@@ -45,7 +46,15 @@ const router = createRouter({
           meta: {
             auth: true
           }
-        }
+        },
+        {
+          path: '/partners/:id',
+          name: 'single-partners',
+          component: SinglePartners,
+          meta: {
+            auth: true
+          }
+        },
       ]
     },
     {

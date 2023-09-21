@@ -27,7 +27,7 @@ const props = defineProps<{
 const inputStyle = computed(() => {
   switch (props.variant) {
     case 'secondary':
-      return 'bg-gray-light-300 py-3 px-4 pe-[100px] focus-within:bg-white focus-within:bg-white'
+      return 'bg-gray-light-300 py-2.5 px-4 pe-[100px] focus-within:bg-white focus-within:bg-white'
     default:
       return 'placeholder:text-gray-light/30 !bg-transparent focus-within:border-blue bg-gray-light-200 tran border-blue-light py-3 px-4'
   }

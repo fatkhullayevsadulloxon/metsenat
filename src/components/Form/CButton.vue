@@ -2,7 +2,7 @@
   <div>
     <div
       :class="buttonColor"
-      class="flex items-center cursor-pointer justify-center transition rounded-md !py-[14px] !px-8"
+      class="flex items-center cursor-pointer justify-center transition rounded-md"
     >
       <slot name="prefix"></slot>
       <button @click="$emit('onSubmit')" class="font-rubik font-medium ms-2.5">
@@ -25,7 +25,7 @@ const buttonColor = computed(() => {
     case 'outline':
       return 'bg-transparent border-blue text-blue hover:bg-blue hover:text-white'
     case 'secondary':
-      return 'bg-gray-light-400 text-blue hover:opacity-50 active:opacity-20'
+      return 'bg-gray-light-400 text-blue hover:opacity-50 active:opacity-20 px-8 py-2.5'
     default:
       return 'bg-blue text-white border-2 border-blue hover:bg-transparent hover:text-blue'
   }

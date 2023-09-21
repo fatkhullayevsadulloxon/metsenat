@@ -31,6 +31,8 @@ module.exports = {
       },
       padding: {
         '13': '55px',
+        '7.5': '30px',
+        '4.5': '18px'
       },
       letterSpacing: {
         '1.25': '1.125px',
@@ -39,7 +41,8 @@ module.exports = {
         sm: '15px'
       },
       maxWidth:{
-        '222': "222px"
+        '222': "222px",
+        '392': '392px',
       }
     },
   },

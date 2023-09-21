@@ -1,7 +1,6 @@
 <template>
   <div>
-    <Header />
-    <Navbar />
+    <Header/>
     <h1 class="font-poppins text-3xl text-center">404 sahifa topilmadi😣</h1>
   </div>
 </template>

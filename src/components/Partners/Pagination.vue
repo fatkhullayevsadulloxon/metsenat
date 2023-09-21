@@ -1,6 +1,6 @@
 <template>
     <div class="pagination mt-7 flex items-center justify-between mb-20">
-        <p class="font-rubik text-black text-sm">{{ partners.count }} tadan 1-10 ko'rsatilmoqda</p>
+        <p class="font-rubik text-black text-sm">{{ partners.count }} tadan 1-{{ page_size }} ko'rsatilmoqda</p>
         <div class="pagination__right flex items-center">
             <div>
                 <div @click="limitShowToggle" class="pagination__limit-show flex items-center">
@@ -52,6 +52,7 @@ const props = defineProps<({
     partners: Object,
     totalPages: Array,
     page: Number,
+    page_size: Number
 })>()
 
 const limitPageSize = [
