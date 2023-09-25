@@ -30,7 +30,7 @@
         :class="otherBorder === true ? '!border-blue' : ''"
         class="text-center py-[20px] cursor-pointer px-[35px] border-2 border-blue-light font-rubik font-medium text-[18px]"
       >
-        Boshqa
+        {{ title }}
       </h3>
     </div>
   </div>
@@ -41,7 +41,8 @@ export default {
     payments: {
       type: Array,
       required: true
-    }
+    },
+    title: String
   },
   data() {
     return {

@@ -3,14 +3,15 @@
         <Navbar>
             <template #search-button>
                 <div class="navbar__left flex items-center 2xl:mb-0 xl:mb-0 lg:mb-0 md:mb-0">
-                    <CInput v-model="search" @input="(onClickSearch, $event)" variant="secondary" placeholder="Izlash" class="me-5">
+                    <CInput v-model="search" @input="(onClickSearch, $event)" variant="secondary" placeholder="Izlash"
+                        class="me-5">
                         <template #prefix>
                             <div>
                                 <img src="../../assets/img/search-icon.svg" alt="" />
                             </div>
                         </template>
                     </CInput>
-                    <CButton variant="secondary" title="Filter" @click="onCLick">
+                    <CButton variant="secondary" title="Filter" @click="onCLickModal">
                         <template #prefix>
                             <div>
                                 <img src="../../assets/img/filter-1.svg" alt="" />
@@ -39,9 +40,17 @@
                     </div>
                 </div>
                 <TableList :partnersListResult="partnersListResult"></TableList>
-                <Pagination @onChangePageSize="onChangePageSize" @onChangePrev="onChangePrev" @onChangeNext="onChangeNext" @onChangePage="onChangePage"
-                    :page="page" :totalPages="totalPages" :partners="partners" :page_size="page_size"></Pagination>
+                <Pagination @onChangePageSize="onChangePageSize" @onChangePrev="onChangePrev" @onChangeNext="onChangeNext"
+                    @onChangePage="onChangePage" :page="page" :totalPages="totalPages" :partners="partners"
+                    :page_size="page_size"></Pagination>
             </div>
+            <transition>
+                <div class="modal" v-if="modalShow">
+                    <Modal class="salom" title="Filter" @onCloseModal="onCloseModal">
+                      <PartnersModal @onCloseModal="onCloseModal" :modalShow="modalShow"></PartnersModal>
+                    </Modal>
+                </div>
+            </transition>
         </section>
     </div>
 </template>
@@ -53,6 +62,10 @@ import Pagination from './Pagination.vue';
 import Navbar from '../Navbar/Navbar.vue';
 import CInput from '../Form/CInput.vue';
 import CButton from '../Form/CButton.vue';
+import Modal from '../Modal/Modal.vue';
+import CSelect from '../Form/CSelect.vue';
+import CLabel from '../Form/CLabel.vue';
+import PartnersModal from './PartnersModal.vue';
 
 let partnersListResult = ref([])
 let partners = ref({})
@@ -60,6 +73,7 @@ let page = ref(1)
 let totalPages = ref(0)
 let search = ref('')
 let page_size = ref(10)
+let modalShow = ref(false)
 
 
 const GetPartnersList = async () => {
@@ -101,10 +115,40 @@ const onChangePageSize = (e) => {
     GetPartnersList()
 }
 
+const onCLickModal = () => {
+    modalShow.value = true
+}
+const onCloseModal  = () => {
+    modalShow.value = false
+}
+
 onMounted(() => {
     GetPartnersList()
 })
 </script>
-<style lang="">
-    
+<style lang="css" scoped>
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
+
+.salom{
+    margin-top: -400px
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
 </style>

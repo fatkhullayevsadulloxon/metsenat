@@ -31,6 +31,7 @@
         </CLabel>
         <CLabel label="To‘lov summasi" class="mt-7" />
         <CPayment
+          title="Boshqa"
           @otherClick="otherClick"
           @otherClickFalse="otherClickFalse"
           :payments="payments"

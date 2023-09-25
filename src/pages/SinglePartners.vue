@@ -2,6 +2,7 @@
     <div>
         <SingleHeader :singleSponsor="singleSponsor"></SingleHeader>
         <SinglePartnersAbout :singleSponsor="singleSponsor"></SinglePartnersAbout>
+        <img class="m-auto mt-[174px]" src="../assets/img/footer-bg.svg" alt="">
     </div>
 </template>
 <script>

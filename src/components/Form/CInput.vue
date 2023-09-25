@@ -21,7 +21,8 @@ const props = defineProps<{
   variant?: 'secondary'
   placeholder: String
   type: String
-  modelValue: String
+  modelValue: String,
+  value: String
 }>()
 
 const inputStyle = computed(() => {

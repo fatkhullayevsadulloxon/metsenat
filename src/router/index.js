@@ -32,8 +32,16 @@ const router = createRouter({
       component: MainLayout,
       children: [
         {
+          path: '/',
+          name: 'home-dashboard',
+          component: Dashboard,
+          meta: {
+            auth: true
+          }
+        },
+        {
           path: '/dashboard',
-          name: 'Dashboard',
+          name: 'dashboard',
           component: Dashboard,
           meta: {
             auth: true
