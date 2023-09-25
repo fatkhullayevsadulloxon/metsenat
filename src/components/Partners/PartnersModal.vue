@@ -36,7 +36,7 @@
                     <div class="flex w-[50%] items-center border-2 !rounded-md transition placeholder:text-gray-light/30 !bg-transparent focus-within:border-blue bg-gray-light-200 tran border-blue-light py-3 px-4">
                         <input @click="() => togglePopover()" placeholder="kk.oo.yyyy - kk.oo.yyyy" v-on="inputEvents" :value="inputValue"
                             class="w-full text-base font-normal outline-none font-rubik !bg-transparent ps-2" />
-                            <img class="cursor-pointer" @click="() => togglePopover()" src="../../assets/img/calendar.svg" alt="">
+                            <img class="cursor-pointer" src="../../assets/img/calendar.svg" alt="">
                     </div>
                 </CLabel>
             </template>

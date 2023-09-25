@@ -6,7 +6,7 @@
       :placeholder="placeholder"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
-      class="w-full text-base font-normal outline-none font-rubik !bg-transparent ps-2"
+      class="!w-full text-base font-normal outline-none font-rubik !bg-transparent ps-2"
       :type="type"
     />
     <slot name="suffix" />
