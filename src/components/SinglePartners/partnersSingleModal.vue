@@ -15,29 +15,29 @@
                 </CInput>
             </CLabel>
             <CLabel class="mt-7" label="Holati"></CLabel>
-            <CSelect @onSelectShow="onSelectShow" :selectShow="selectShow" selectedText="Barchasi" class="mt-2">
+            <CSelect @onSelectShow="onSelectShow" :selectShow="selectShow" :selectedText="selectedText2" class="mt-2">
                 <template #suffix>
                     <div>
                         <img src="../../assets/img/arrow-bottom.svg" alt="">
                     </div>
                 </template>
                 <div class="py-3 px-4 hover:text-blue transition">
-                    <p @click="selectedTextChange($event)" class="font-rubik">Barchasi</p>
+                    <p @click="selectedTextChange2($event)" class="font-rubik">Barchasi</p>
                 </div>
                 <hr class="bg-blue-light !h-[1px]">
-                <div @click="selectedTextChange($event)" class="py-3 px-4 hover:text-blue transition">
+                <div @click="selectedTextChange2($event)" class="py-3 px-4 hover:text-blue transition">
                     <p class="font-rubik">Yangi</p>
                 </div>
                 <hr class="bg-blue-light !h-[1px]">
-                <div @click="selectedTextChange($event)" class="py-3 px-4 hover:text-blue transition">
+                <div @click="selectedTextChange2($event)" class="py-3 px-4 hover:text-blue transition">
                     <p class="font-rubik">Moderatsiyada</p>
                 </div>
                 <hr class="bg-blue-light !h-[1px]">
-                <div @click="selectedTextChange($event)" class="py-3 px-4 hover:text-blue transition">
+                <div @click="selectedTextChange2($event)" class="py-3 px-4 hover:text-blue transition">
                     <p class="font-rubik">Tasdiqlangan</p>
                 </div>
                 <hr class="bg-blue-light !h-[1px]">
-                <div @click="selectedTextChange($event)" class="py-3 px-4 hover:text-blue transition">
+                <div @click="selectedTextChange2($event)" class="py-3 px-4 hover:text-blue transition">
                     <p class="font-rubik">Bekor qilingan</p>
                 </div>
             </CSelect>
@@ -64,7 +64,7 @@
             </CSelect>
             <slot name="firmname"></slot>
             <hr class="mt-7">
-            <div class="flex justify-end mt-7">
+            <div class="flex justify-end mt-7 mb-10">
                 <CButton @click="updatePartners" title="Saqlash">
                     <template #prefix>
                         <div>
@@ -97,6 +97,7 @@ const phone = ref('')
 let sum = ref('')
 const paymentType = ref([])
 const selectedText = ref('Pul o‘tkazmalari')
+const selectedText2 = ref('Barchasi')
 
 const router = useRouter()
 const route = useRoute()
@@ -141,7 +142,11 @@ const onSelectShow1 = () => {
 }
 
 const selectedTextChange = (e) => {
-    selectedText.value = e.target.innerHTML
+    selectedText.value = e.target.textContent
+    paymentSelectShow.value = false
+}
+const selectedTextChange2 = (e) => {
+    selectedText2.value = e.target.textContent
     selectShow.value = false
 }
 

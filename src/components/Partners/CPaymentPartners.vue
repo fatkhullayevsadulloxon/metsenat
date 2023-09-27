@@ -10,14 +10,13 @@
                 {{ title }}
             </h3>
         </div>
-        <div class="hover:opacity-50 transition border-2 border-blue-light" v-for="(payment, index) in payments"
+        <div @click="() => { (paymentId = payment.id), (otherBorder = false), (checkedIconId = payment.id) }"
+            :class="paymentId === payment.id ? '!border-blue' : ''"
+            class="hover:opacity-50 transition border-2 border-blue-light" v-for="(payment, index) in payments"
             :key="index">
+            <img v-if="checkedIconId === payment.id" class="absolute flex ms-[110px] mt-[-10px]" src="../../assets/img/Checked-Icon.svg" alt="">
             <div class="py-4 px-4 flex items-center justify-center cursor-pointer m-auto">
-                <h3 @click="() => {
-                    ; (paymentId = payment.id), (otherBorder = false)
-                }
-                    " :class="paymentId === payment.id ? '!border-blue' : ''"
-                    class="cursor-pointer font-rubik flex items-center font-medium text-[14px]"
+                <h3 class="cursor-pointer font-rubik flex items-center font-medium text-[14px]"
                     style="white-space: nowrap;">
                     {{ payment.sum }}
                 </h3>
@@ -38,7 +37,8 @@ export default {
     data() {
         return {
             paymentId: 0,
-            otherBorder: false
+            otherBorder: false,
+            checkedIconId: 0,
         }
     }
 }

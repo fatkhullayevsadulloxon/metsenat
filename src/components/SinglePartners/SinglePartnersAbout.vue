@@ -35,7 +35,7 @@
         </div>
         <transition>
             <div class="modal" v-if="modalShow">
-                <Modal class="modal-single" title="Tahrirlash" @onCloseModal="onCloseModal">
+                <Modal class="modal-single overflow-hidden" title="Tahrirlash" @onCloseModal="onCloseModal">
                     <Transition name="fade">
                         <partnersSingleModal v-if="personNav" :singleSponsor="singleSponsor">
                             <template #navbar>
@@ -116,6 +116,10 @@ export default {
     backdrop-filter: blur(3px);
     z-index: 5;
     margin-top: -300px
+}
+
+.modal-single{
+    margin-top: 70px !important
 }
 
 </style>
