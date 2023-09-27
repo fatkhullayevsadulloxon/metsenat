@@ -124,7 +124,7 @@ const getPaymentType = async () => {
 onMounted(() => {
     firstName.value = props.singleSponsor.full_name
     phone.value = props.singleSponsor.phone
-    sum.value = props.singleSponsor.sum
+    sum.value = formatPrice(props.singleSponsor.sum)
     getPaymentType()
 })
 
@@ -134,7 +134,11 @@ const paymentSelectShow = ref(false)
 
 const onSelectShow = () => {
     selectShow.value = !selectShow.value
+}
 
+const formatPrice = (value) => {
+    let val = (value / 1).toFixed('UZS').replace(' ', ' ');
+    return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
 const onSelectShow1 = () => {

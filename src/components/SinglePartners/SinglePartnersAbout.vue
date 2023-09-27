@@ -83,10 +83,10 @@ export default {
         }
     },
     methods: {
-        formatPrice(value) {
-            let val = (value / 1).toFixed('UZS').replace(' ', ' ');
-            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-        },
+            formatPrice(value) {
+                let val = (value / 1).toFixed('UZS').replace(' ', ' ');
+                return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+            },
         onShowModal() {
             this.modalShow = true
         },
